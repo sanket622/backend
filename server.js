@@ -2,13 +2,17 @@ import express from 'express'
 import axios from 'axios'
 import cors from 'cors'
 import dotenv from 'dotenv'
-import { log } from 'node:console'
 
 dotenv.config()
 const app = express()
 const PORT = process.env.PORT || 4000
 
 app.use(cors())
+const MONGO_URL = process.env.MONGO_URL;
+mongoose
+  .connect(MONGO_URL)
+  .then(() => console.log("MongoDDB connected"))
+  .catch((error) => console.log(error));
 
 app.get('/api/weather',async(req,res)=>{
     const {city} = req.query
