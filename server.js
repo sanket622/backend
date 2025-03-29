@@ -44,9 +44,9 @@ app.get('/api/weather', async (req, res) => {
 });
 
 // Health Check Route
-app.get('', (req, res) => {
-    res.json('Hi');
-});
+app.get("/", (req, res) => {
+    res.send("Welcome to E-Commerce API");
+  });
 
 // Start Server
 app.listen(PORT, () => {
